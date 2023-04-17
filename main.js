@@ -1,6 +1,4 @@
-Instructions:
-
-
+// Instructions:
 
 // Create a class called Stack that represents a simple stack data structure.
 
@@ -16,43 +14,51 @@ Instructions:
 
 // Please make sure to handle edge cases, such as empty stack situations, properly.
 
-
-
 // Here's a template to help you get started:
 
-
-
 class Stack {
-    constructor() {
-        // Initialize the Stack class here
-        this.stack = [];
-    }
+  stack = [];
+  empty = true;
+  constructor() {
+    // Initialize the Stack class here
+    this.stack = [];
+  }
 
-    push(value) {
-        // Implement the push method
-        this.stack.push(value);
+  push(value) {
+    // Implement the push method
+    if (this.isEmpty) {
+      this.stack.push(value);
+    } else {
+      this.stack[this.stack.length] = value;
     }
+    // console.log(this.stack)
+  }
 
-    pop() {
-        // Implement the pop method
-        if (this.isEmpty()) {
-            return -1;
-        }
-        return this.stack.pop();
+  pop() {
+    // Implement the pop method
+    if (this.isEmpty()) {
+      return -1;
     }
+    return this.stack.pop();
+  }
 
-    peek() {
-        // Implement the peek method
-        if (this.isEmpty()) {
-            return -1;
-        }
-        return this.stack[this.stack.length - 1];.
+  peek() {
+    // Implement the peek method
+    if (this.isEmpty()) {
+      return -1;
     }
+    return this.stack[this.stack.length - 1];
+  }
 
-    isEmpty() {
-        // Implement the isEmpty method
-        return this.stack.length === 1;
+  isEmpty() {
+    // Implement the isEmpty method
+    if (this.stack.length === 0) {
+      return this.empty;
+    } else {
+      this.empty = false;
+      return this.empty;
     }
+  }
 }
 
 const stack = new Stack();
@@ -62,6 +68,4 @@ console.log("Top element:", stack.peek()); // Should print 10
 console.log("Removing top element:", stack.pop()); // Should print 10
 console.log("Is stack empty?", stack.isEmpty()); // Should print false
 
-
 // This code defines a Stack class with push, pop, peek, and isEmpty methods in JavaScript. The main part of the code demonstrates the correct behavior of the stack operations.
-
